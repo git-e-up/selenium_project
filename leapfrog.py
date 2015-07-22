@@ -1,7 +1,4 @@
-# browser = webdriver.Firefox()
-# browser.get('http://seleniumhq.org/')
 
-# driver.get("http://www.google.com")
 import unittest
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
@@ -15,9 +12,6 @@ def test_run():
     # go to the google home page
     driver.get("http://www.google.com")
 
-    # the page is ajaxy so the title is originally this:
-    # print driver.title
-
     # find the element that's name attribute is q (the google search box)
     inputElement = driver.find_element_by_name("q")
 
@@ -27,45 +21,26 @@ def test_run():
     # submit the form (although google automatically searches now without submitting)
     inputElement.submit()
 
+    # we have to wait for the page to refresh, the last thing that seems to be updated is the title
+    WebDriverWait(driver, 5000).until(EC.title_contains("fish food"))
 
-
-    # wiki = driver.find_elements_by_xpath("//*[contains(text(), 'wikipedia')]")
-    #
-    # wiki.click()
-
-    # try:
-    #     # we have to wait for the page to refresh, the last thing that seems to be updated is the title
-    WebDriverWait(driver, 110).until(EC.title_contains("fish food"))
-
-    #
-    #     # You should see "cheese! - Google Search"
-    # print driver.title
-
-    # wiki = driver.find_elements_by_xpath("id('rso')/x:div[3]/x:li[1]/x:div/x:h3/x:a")
-
-    # that's firefox, google's is //*[@id="rso"]/div[3]/li[1]/div/h3/a
-
+    # find the Wikipedia link
     wiki = driver.find_element_by_xpath("//*[contains(text(), 'Wikipedia')]")
 
+    # click the Wikipedia link
     wiki.click()
 
+    # find the heading
     heading = driver.find_element_by_id("firstHeading")
 
+    # find the hide button
     collapse = driver.find_element_by_id("collapseButton0")
 
+    # click the hide button
     collapse.click()
 
-    # if "Aquarium fish feed" in heading.text:
-    #     raise Exception("pass")
-
+    # Since the heading should be Aquarium and not Aquatic, this won't pass.
     if not "Aquatic fish feed" in heading.text:
         raise Exception("Switch Aquatic to Aquarium to pass the test")
 
     driver.quit
-
-    # heading
-    #
-    # finally:
-    #     driver.quit()
-    #get value from title tag
-    # assert means check if title
