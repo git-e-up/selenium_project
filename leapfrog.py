@@ -2,7 +2,7 @@
 # browser.get('http://seleniumhq.org/')
 
 # driver.get("http://www.google.com")
-
+import unittest
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
@@ -15,7 +15,7 @@ driver = webdriver.Firefox()
 driver.get("http://www.google.com")
 
 # the page is ajaxy so the title is originally this:
-print driver.title
+# print driver.title
 
 # find the element that's name attribute is q (the google search box)
 inputElement = driver.find_element_by_name("q")
@@ -38,7 +38,7 @@ WebDriverWait(driver, 110).until(EC.title_contains("fish food"))
 
 #
 #     # You should see "cheese! - Google Search"
-print driver.title
+# print driver.title
 
 # wiki = driver.find_elements_by_xpath("id('rso')/x:div[3]/x:li[1]/x:div/x:h3/x:a")
 
@@ -47,6 +47,12 @@ print driver.title
 wiki = driver.find_element_by_xpath("//*[contains(text(), 'Wikipedia')]")
 
 wiki.click()
+
+heading = driver.find_element_by_id("firstHeading")
+
+print heading.text
+
+# heading
 #
 # finally:
 #     driver.quit()
