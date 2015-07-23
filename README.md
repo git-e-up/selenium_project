@@ -1,6 +1,6 @@
 # selenium_project
 
-This is a [Python Selenium WebDriver](https://pypi.python.org/pypi/selenium/2.46.1) test to determine whether the heading of a Wikipedia page matches the expected result. (Hint: it doesn't pass)
+This is a [Python Selenium WebDriver](https://pypi.python.org/pypi/selenium/2.46.1) test to determine whether the heading of a Wikipedia page matches the expected result (Hint: it doesn't pass). It also clicks the "hide" button in the purple section at the bottom of the page. 
 
 It uses [virtualenv](https://pypi.python.org/pypi/virtualenv) to reproduce the environment in which it was built.
 
