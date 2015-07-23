@@ -22,7 +22,7 @@ def test_run():
     inputElement.submit()
 
     # we have to wait for the page to refresh, the last thing that seems to be updated is the title
-    WebDriverWait(driver, 7000).until(EC.title_contains("fish food"))
+    driver.implicitly_wait(10)
 
     # find the Wikipedia link
     wiki = driver.find_element_by_xpath("//*[contains(text(), 'Wikipedia')]")
