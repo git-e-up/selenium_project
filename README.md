@@ -10,4 +10,4 @@ To run the test, clone the repo, switch into it, and run the following script:
 
 Requirements: Python 2.6, 2.7, 3.2, 3.3
 
-
+Note: if your computer or internet connection are running slowly, the test may time-out. 
