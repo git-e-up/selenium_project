@@ -1,9 +1,11 @@
-echo "Hello, world!"
+# echo "Hello, world!"
 
 virtualenv --no-site-packages selenium_project/
 
-cd selenium_project/
+# cd selenium_project/
 
-source bin/activate
+source selenium_project/bin/activate
 
-py.test leapfrog.py leapfrog.py
+pip install requests
+
+py.test leapfrog.py
