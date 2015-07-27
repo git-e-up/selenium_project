@@ -1,5 +1,5 @@
 
-import unittest
+
 from selenium import webdriver
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
@@ -22,7 +22,7 @@ def test_run():
     inputElement.submit()
 
     # we have to wait for the page to refresh, the last thing that seems to be updated is the title
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(30)
 
     # find the Wikipedia link
     wiki = driver.find_element_by_xpath("//*[contains(text(), 'Wikipedia')]")
@@ -43,4 +43,4 @@ def test_run():
     if not "Aquatic fish feed" in heading.text:
         raise Exception("Switch Aquatic to Aquarium to pass the test")
 
-    driver.quit
+    driver.quit()
